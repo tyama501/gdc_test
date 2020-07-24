@@ -66,7 +66,7 @@ void gdc_vectw_dot(char dir, int circle_r)
   int num_dot;
 
   p1 = 0x20 | dir;  /* CIRCLE */
-  num_dot = 2 * 3.14 * circle_r;
+  num_dot = circle_r * 0.7071; /* circle_r * sin(2*PI/8) */
   p5_p4 = circle_r - 1;
   p7_p6 = 2 * p5_p4;
 
@@ -188,14 +188,14 @@ int main(void)
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(200,0);
+  gdc_csrw(150,50);
   waitF_empty();
   gdc_vectw_dot(1,100);
   waitF_empty();
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(200,200);
+  gdc_csrw(150,150);
   waitF_empty();
   gdc_vectw_dot(2,100);
   waitF_empty();
@@ -209,28 +209,28 @@ int main(void)
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(300,100);
+  gdc_csrw(200,100);
   waitF_empty();
   gdc_vectw_dot(4,100);
   waitF_empty();
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(200,200);
+  gdc_csrw(150,150);
   waitF_empty();
   gdc_vectw_dot(5,100);
   waitF_empty();
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(200,0);
+  gdc_csrw(150,50);
   waitF_empty();
   gdc_vectw_dot(6,100);
   waitF_empty();
   gdc_vecte();
   waitF_empty();
 
-  gdc_csrw(300,100);
+  gdc_csrw(200,100);
   waitF_empty();
   gdc_vectw_dot(7,100);
   waitF_empty();
